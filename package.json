@@ -1,0 +1,23 @@
+{
+  "name": "georaster-to-canvas",
+  "version": "0.0.1",
+  "description": "Converts a GeoRaster into a Canvas",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeoTIFF/georaster-to-canvas.git"
+  },
+  "keywords": [
+    "georaster",
+    "geotiff",
+    "canvas"
+  ],
+  "author": "Daniel J. Dufour",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GeoTIFF/georaster-to-canvas/issues"
+  },
+  "homepage": "https://github.com/GeoTIFF/georaster-to-canvas#readme"
+}
