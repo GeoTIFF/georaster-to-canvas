@@ -2,7 +2,7 @@
 
 function toImageData(georaster, canvasWidth, canvasHeight) {
   if (georaster.values) {
-    const { noDataValue, values } = georaster;
+    const { noDataValue, mins, ranges, values } = georaster;
     const numBands = values.length;
     const xRatio = georaster.width / canvasWidth;
     const yRatio = georaster.height / canvasHeight;
@@ -23,9 +23,10 @@ function toImageData(georaster, canvasWidth, canvasHeight) {
           const i = (rowIndex * (canvasWidth * 4)) + 4 * columnIndex;
           if (numBands === 1) {
             const pixelValue = Math.round(pixelValues[0]);
-            data[i] = pixelValue;
-            data[i + 1] = 0;
-            data[i + 2] = 0;
+            const scaledPixelValue = Math.round((pixelValue - mins[0]) / ranges[0] * 255);
+            data[i] = scaledPixelValue;
+            data[i + 1] = scaledPixelValue;
+            data[i + 2] = scaledPixelValue;
             data[i + 3] = 255;
           } else if (numBands === 3) {
             try {
