@@ -38,6 +38,16 @@ function toImageData(georaster, canvasWidth, canvasHeight) {
             } catch (error) {
               console.error(error);
             }
+          } else if (numBands === 4) {
+            try {
+              const [r, g, b, a] = pixelValues;
+              data[i] = r;
+              data[i + 1] = g;
+              data[i + 2] = b;
+              data[i + 3] = a;
+            } catch (error) {
+              console.error(error);
+            }
           }
         }
       }
